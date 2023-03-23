@@ -13,9 +13,9 @@ const sans = Noto_Sans({ subsets: ['latin'], weight: '500' });
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={sans.className}>
-      <body>
+      <body className="flex flex-col w-full max-w-screen-2xl mx-auto">
         <Header />
-        {children}
+        <main className="grow">{children}</main>
         <Footer />
       </body>
     </html>
