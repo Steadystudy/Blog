@@ -1,9 +1,5 @@
-import { Post, getFeaturedPosts } from '@/service/posts';
+import { getFeaturedPosts } from '@/service/posts';
 import PostGrid from './PostGrid';
-
-interface Props {
-  posts: Post[];
-}
 
 export default async function FeaturedPosts() {
   const posts = await getFeaturedPosts();
