@@ -1,7 +1,6 @@
 'use client';
 
-import { Post, getPost } from '@/service/posts';
-import Image from 'next/image';
+import { Post } from '@/service/posts';
 import PostCard from './PostCard';
 
 interface Props {
