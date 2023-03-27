@@ -1,3 +1,4 @@
+import AdjacentPostCard from '@/components/AdjacentPostCard';
 import MarkdownViewer from '@/components/MarkdownViewer';
 import { getPostData } from '@/service/posts';
 import Image from 'next/image';
@@ -9,7 +10,7 @@ interface Props {
 }
 
 export default async function PostPage({ params: { slug } }: Props) {
-  const { title, content, date, description, path } = await getPostData(slug);
+  const { title, content, date, description, path, prev, next } = await getPostData(slug);
 
   return (
     <article className="mx-8">
@@ -27,6 +28,10 @@ export default async function PostPage({ params: { slug } }: Props) {
         <div className="border-2 my-4 border-lime-400"></div>
       </section>
       <MarkdownViewer content={content} />
+      <section className="flex">
+        {prev && <AdjacentPostCard post={prev} />}
+        {next && <AdjacentPostCard post={next} />}
+      </section>
     </article>
   );
 }
