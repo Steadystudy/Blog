@@ -1,11 +1,20 @@
 import AdjacentPostCard from '@/components/AdjacentPostCard';
 import MarkdownViewer from '@/components/MarkdownViewer';
 import { getPostData } from '@/service/posts';
+import { Metadata } from 'next';
 import Image from 'next/image';
 
 interface Props {
   params: {
     slug: string;
+  };
+}
+
+export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+  const { title, description } = await getPostData(slug);
+  return {
+    title,
+    description,
   };
 }
 
