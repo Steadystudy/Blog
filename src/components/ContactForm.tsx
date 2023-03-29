@@ -2,8 +2,9 @@
 
 import { FormEvent, useState } from 'react';
 import Banner, { BannerType } from './Banner';
+import sendContactEmail from '@/service/contact';
 
-type Form = {
+export type Form = {
   from: string;
   subject: string;
   message: string;
@@ -26,18 +27,28 @@ export default function ContactForm() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Feat: 성공하지 못한 케이스 추가
-    setBanner({ message: '성공했어', state: 'success' });
-    setTimeout(() => {
-      setBanner(null);
-    }, 3000);
+    sendContactEmail(form)
+      .then(() => {
+        setBanner({ message: '성공했어', state: 'success' });
+        setForm(INITIAL_FORM_STATE);
+      })
+      .catch(() => {
+        setBanner({ message: '실패했어', state: 'fail' });
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setBanner(null);
+        }, 3000);
+      });
   };
 
   return (
-    <section>
+    <>
       {banner && <Banner banner={banner} />}
-      <form onSubmit={onSubmit} className="flex flex-col items-center">
-        <label htmlFor="from">Your Email</label>
+      <form onSubmit={onSubmit} className="w-full max-w-md flex flex-col gap-2 p-4 bg-gray-600">
+        <label className="group-[dd]" htmlFor="from">
+          Your Email
+        </label>
         <input
           type="email"
           id="from"
@@ -65,8 +76,10 @@ export default function ContactForm() {
           required
           onChange={onChange}
         />
-        <button type="submit">Submit</button>
+        <button type="submit" className="bg-lime-400">
+          Submit
+        </button>
       </form>
-    </section>
+    </>
   );
 }
