@@ -1,6 +1,6 @@
 import AdjacentPostCard from '@/components/AdjacentPostCard';
 import MarkdownViewer from '@/components/MarkdownViewer';
-import { getPostData } from '@/service/posts';
+import { getFeaturedPosts, getPostData } from '@/service/posts';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
@@ -43,4 +43,12 @@ export default async function PostPage({ params: { slug } }: Props) {
       </section>
     </article>
   );
+}
+
+// feature post page 미리 만들기
+export async function generateStaticParams() {
+  const posts = await getFeaturedPosts();
+  return posts.map((post) => ({
+    slug: post.path,
+  }));
 }

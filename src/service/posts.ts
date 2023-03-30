@@ -1,5 +1,6 @@
 import { promises } from 'fs';
 import path from 'path';
+import { cache } from 'react';
 
 export interface Post {
   id: string;
@@ -13,13 +14,15 @@ export interface Post {
 
 export type PostData = Post & { content: string; next: Post | null; prev: Post | null };
 
-export async function getAllPosts(): Promise<Post[]> {
+// cache는 ssr을 사용하는 경우 성능향상에 도움이 된다.
+// fetch의 경우 next에서 캐시를 알아서 해주기 때문에 cache로 감쌀 필요가 없다.
+export const getAllPosts = cache(async (): Promise<Post[]> => {
   const filepath = path.join(process.cwd(), 'data', 'posts.json');
   return promises
     .readFile(filepath, 'utf-8')
     .then<Post[]>(JSON.parse)
     .then((data) => data.sort((a, b) => (a.date > b.date ? -1 : 1)));
-}
+});
 
 export async function getPost(id: string): Promise<Post | undefined> {
   const posts = await getAllPosts();
