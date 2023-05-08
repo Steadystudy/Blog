@@ -34,12 +34,12 @@ export default async function PostPage({ params: { slug } }: Props) {
         <p className="self-end">{date.toString()}</p>
         <h1>{title}</h1>
         <h2>{description}</h2>
-        <div className="border-2 my-4 border-lime-400"></div>
+        <div className="my-4 border-2 border-lime-400"></div>
       </section>
       <MarkdownViewer content={content} />
       <section className="flex">
-        {prev && <AdjacentPostCard post={prev} />}
-        {next && <AdjacentPostCard post={next} />}
+        {prev && <AdjacentPostCard type="prev" post={prev} />}
+        {next && <AdjacentPostCard type="next" post={next} />}
       </section>
     </article>
   );
