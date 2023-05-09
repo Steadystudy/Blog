@@ -10,32 +10,49 @@ import { FiGithub } from 'react-icons/fi';
 import { BsFolder } from 'react-icons/bs';
 import { FaFolderOpen } from 'react-icons/fa';
 
+const menu = [
+  {
+    name: 'about',
+    href: '/about',
+    clickIcon: (
+      <Image
+        className="rounded-full"
+        width={60}
+        height={60}
+        src={ProfileImg}
+        alt="profile"
+        priority
+      />
+    ),
+    icon: (
+      <Image
+        className="rounded-full"
+        width={60}
+        height={60}
+        src={ProfileImg}
+        alt="profile"
+        priority
+      />
+    ),
+  },
+  { name: 'home', href: '/', clickIcon: <IoHomeSharp />, icon: <IoHomeOutline /> },
+  { name: 'posts', href: '/posts', clickIcon: <FaFolderOpen />, icon: <BsFolder /> },
+];
+
 export default function Sidebar() {
   const pathname = usePathname();
+
   return (
     <section className="flex justify-between w-full bg-green-hot lg:flex-col lg:h-full lg:absolute lg:left-0 lg:w-[80px]">
-      <div className="flex lg:flex-col">
-        <Link href="/about">
-          <MenuBox>
-            <Image
-              className="rounded-full"
-              width={60}
-              height={60}
-              src={ProfileImg}
-              alt="profile"
-              priority
-            />
-          </MenuBox>
-        </Link>
-        <Link href="/">
-          <MenuBox>{pathname === '/' ? <IoHomeSharp /> : <IoHomeOutline />}</MenuBox>
-        </Link>
-        <Link href="/posts">
-          <MenuBox>{pathname === '/posts' ? <FaFolderOpen /> : <BsFolder />}</MenuBox>
-        </Link>
-      </div>
+      <ul className="flex lg:flex-col">
+        {menu.map(({ href, clickIcon, icon, name }) => (
+          <Link key={href} href={href} aria-label={name}>
+            <MenuBox border={pathname === href}>{pathname === href ? clickIcon : icon}</MenuBox>
+          </Link>
+        ))}
+      </ul>
       <div className="items-end ">
-        <Link target="_blank" href="https://github.com/Steadystudy">
+        <Link aria-label="github" target="_blank" href="https://github.com/Steadystudy">
           <MenuBox>
             <FiGithub />
           </MenuBox>
