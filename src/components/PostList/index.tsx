@@ -9,7 +9,7 @@ interface Props {
 
 export default function PostList({ posts }: Props) {
   return (
-    <ul className="flex flex-col">
+    <ul className="flex flex-col w-full">
       {posts.map((post) => (
         <li key={post.id}>{<PostCard post={post} />}</li>
       ))}

@@ -4,6 +4,7 @@ import { Post } from '@/service/posts';
 import { useState } from 'react';
 import PostGrid from './PostGrid';
 import Categories from './Categories';
+import PostList from './PostList';
 
 interface Props {
   posts: Post[];
@@ -19,7 +20,7 @@ export default function FilteredPosts({ posts, categories }: Props) {
 
   return (
     <section className="flex m-4">
-      <PostGrid posts={filtered} />
+      <PostList posts={filtered} />
       <Categories
         categories={[ALL_POSTS, ...categories]}
         onClick={setSelected}
