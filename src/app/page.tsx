@@ -1,7 +1,6 @@
 import CarouselPosts from '@/components/CarouselPosts';
 import FeaturedPosts from '@/components/FeaturedPosts';
 import Greeting from '@/components/Greeting';
-import Introduction from '@/components/Introduction';
 
 export default async function Home() {
   return (
