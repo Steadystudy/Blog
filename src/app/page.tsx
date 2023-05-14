@@ -1,15 +1,15 @@
 import CarouselPosts from '@/components/CarouselPosts';
 import FeaturedPosts from '@/components/FeaturedPosts';
-import Introduction from '@/components/Introduction';
+import Greeting from '@/components/Greeting';
 
 export default async function Home() {
   return (
-    <>
-      <Introduction />
+    <section className="flex flex-col gap-12 px-8 mt-16">
+      <Greeting />
       {/* @ts-expect-error Async Server Component */}
       <FeaturedPosts />
       {/* @ts-expect-error Async Server Component */}
       <CarouselPosts />
-    </>
+    </section>
   );
 }
