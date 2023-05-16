@@ -1,83 +1,65 @@
 [
   {
     "id": "1",
-    "title": "2021년 리뷰",
-    "description": "2021년 한해 동안 배운 기술들, 생각들 정리",
-    "date": "2021-12-31",
-    "category": "my story",
-    "path": "review-2021",
-    "featured": false
-  },
-  {
-    "id": "2",
-    "title": "자바스크립트 기초 문법",
-    "description": "기본 문법부터 사용하는 실전까지 최종정리",
-    "date": "2022-05-08",
-    "category": "javascript",
-    "path": "javascript-basic",
-    "featured": false
-  },
-  {
-    "id": "3",
-    "title": "자바스크립트 10가지 프로팁!",
-    "description": "프로처럼 자바스크립트 사용할 수 있는 10가지 팁",
-    "date": "2022-06-15",
-    "category": "javascript",
-    "path": "javascript-10-tips",
+    "title": "D3란",
+    "description": "D3 장,단점과 자주 사용하는 메서드 정리",
+    "date": "2023-01-13",
+    "category": "D3",
+    "path": "summary-D3",
     "featured": true
   },
   {
-    "id": "4",
-    "title": "Node 기초 정리",
-    "description": "기본 적인 Node 사용법에 대해 전부 정리!",
-    "date": "2022-08-21",
-    "category": "backend",
-    "path": "node-basic",
+    "id": "2",
+    "title": "D3 데이터 조인",
+    "description": "Dom element와 Selection, Data 결합하기",
+    "date": "2023-01-14",
+    "category": "D3",
+    "path": "dataJoin-D3",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": "json파일 type error (typescript)",
+    "description": "Typescript에서 JSON 파일을 import했을 때 일어날 수 있는 타입 오류",
+    "date": "2023-01-22",
+    "category": "Trouble shooting",
+    "path": "typeError-D3",
     "featured": false
+  },
+  {
+    "id": "4",
+    "title": "브라우저 렌더링",
+    "description": "브라우저 구성요소와 렌더링 과정, webkit의 동작 과정",
+    "date": "2022-10-05",
+    "category": "CS공부",
+    "path": "browserRendering",
+    "featured": true
   },
   {
     "id": "5",
-    "title": "2022년 리뷰",
-    "description": "2022년 한해 동안 배운 기술들, 생각들 정리",
-    "date": "2022-12-31",
-    "category": "my story",
-    "path": "review-2022",
-    "featured": false
+    "title": "브라우저 렌더링 최적화",
+    "description": "브라우저 렌더링 최적화 이유와 방법",
+    "date": "2022-10-17",
+    "category": "CS공부",
+    "path": "browserRenderingOptimization",
+    "featured": true
   },
   {
     "id": "6",
-    "title": "Node 프로 팁!",
-    "description": "노드를 프로처럼 사용하기 위한 모든 팁들을 정리!",
-    "date": "2023-04-10",
-    "category": "backend",
-    "path": "node-pro-tips",
+    "title": "JWT",
+    "description": "JWT의 구조와 장,단점",
+    "date": "2022-11-09",
+    "category": "CS공부",
+    "path": "JWT",
     "featured": true
   },
   {
     "id": "7",
-    "title": "리액트 Best Practice!",
-    "description": "리액트를 정확하게 사용하는 방법들을 정리",
-    "date": "2023-04-15",
-    "category": "frontend",
-    "path": "best-react-practices",
-    "featured": true
-  },
-  {
-    "id": "8",
-    "title": "리액트 18버전!",
-    "description": "리액트 18에 추가된 사항들 정리",
-    "date": "2023-05-02",
-    "category": "frontend",
-    "path": "react18-walkthrough",
-    "featured": true
-  },
-  {
-    "id": "9",
-    "title": "2023년 리뷰",
-    "description": "2023년 한해 동안 배운 기술들, 생각들 정리",
-    "date": "2023-12-31",
-    "category": "my story",
-    "path": "review-2023",
-    "featured": true
+    "title": "Snippet",
+    "description": "코드 작성 속도를 올려주는 Snippet 설정 방법",
+    "date": "2022-12-09",
+    "category": "Programming",
+    "path": "snippet",
+    "featured": false
   }
 ]

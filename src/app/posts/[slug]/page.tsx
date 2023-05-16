@@ -21,14 +21,7 @@ export async function generateMetadata({ params: { slug } }: Props): Promise<Met
 export default async function PostPage({ params: { slug } }: Props) {
   const { title, content, date, category, description, path, prev, next } = await getPostData(slug);
   return (
-    <article className="mx-8">
-      <Image
-        className="w-full overflow-hidden max-h-96"
-        src={`/images/posts/${path}.png`}
-        alt={title}
-        width={500}
-        height={400}
-      />
+    <article className="m-8">
       <section className="flex flex-col">
         <h1>{title}</h1>
         <h2>{description}</h2>
