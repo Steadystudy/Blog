@@ -61,5 +61,14 @@
     "category": "Programming",
     "path": "snippet",
     "featured": false
+  },
+  {
+    "id": "7",
+    "title": "Git",
+    "description": "Git의 동작 원리와 기능",
+    "date": "2022-12-09",
+    "category": "Programming",
+    "path": "Git",
+    "featured": true
   }
 ]
