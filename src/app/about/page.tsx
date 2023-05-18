@@ -27,12 +27,12 @@ export default function AboutPage() {
           <ProjectBox
             title="따봉"
             description="칭찬 감사 SNS 어플리케이션"
-            link="https://github.com/prgrms-web-devcourse/Team-03-LinkBook-FE"
+            link="https://github.com/prgrms-fe-devcourse/FEDC2_TTaBong_Dali"
           />
           <ProjectBox
             title="Outstagram"
             description="인스타그램 클론 코딩"
-            link="https://github.com/prgrms-web-devcourse/Team-03-LinkBook-FE"
+            link="https://github.com/Steadystudy/outstagram"
           />
         </div>
       </section>
