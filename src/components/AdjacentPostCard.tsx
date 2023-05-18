@@ -21,15 +21,12 @@ export default function AdjacentPostCard({ post: { path, title, description }, t
           referrerPolicy="no-referrer"
         />
         <div className="absolute flex items-center p-4 text-yellow-500 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 group-hover:scale-110">
-          {/* Style: 방향키 고민 */}
-          {/* {type === 'prev' && <GrCaretPrevious />} */}
           <div className="flex flex-col">
             <h2 className="w-full text-center truncate ">{title}</h2>
             <p className="w-full overflow-hidden text-center text-ellipsis whitespace-wrap">
               {description}
             </p>
           </div>
-          {/* {type === 'next' && <GrCaretNext />} */}
         </div>
       </article>
     </Link>
