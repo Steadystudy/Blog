@@ -4,6 +4,7 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Image from 'next/image';
+import remarkGfm from 'remark-gfm';
 
 interface Props {
   content: string;
@@ -28,7 +29,7 @@ export default function MarkdownViewer({ content }: Props) {
         },
         img: (image) => (
           <Image
-            className="w-full max-h-96"
+            className="object-cover w-full"
             src={image.src || ''}
             alt={image.alt || ''}
             width={500}
@@ -36,6 +37,7 @@ export default function MarkdownViewer({ content }: Props) {
           />
         ),
       }}
+      remarkPlugins={[remarkGfm]}
     >
       {content}
     </ReactMarkdown>

@@ -69,6 +69,16 @@
     "date": "2022-12-09",
     "category": "Programming",
     "path": "Git",
+
     "featured": true
+  },
+  {
+    "id": "10",
+    "title": "twin.macro 설치하다 생긴 일",
+    "description": "Next13, emotion, twin.macro 세팅 문제 (현재 진행형)",
+    "date": "2023-05-26",
+    "category": "Trouble shooting",
+    "path": "twin.macro-settingError",
+    "featured": false
   }
 ]
