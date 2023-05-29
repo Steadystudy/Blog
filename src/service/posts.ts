@@ -29,9 +29,9 @@ export async function getPost(id: string): Promise<Post | undefined> {
   return posts.find((post) => post.id === id);
 }
 
-export async function getFeaturedPosts(): Promise<Post[]> {
+export async function getFeaturedPosts(count = 0): Promise<Post[]> {
   const posts = await getAllPosts();
-  return posts.filter((post) => post.featured);
+  return posts.filter((post) => post.featured).slice(0, count);
 }
 
 export async function getNonFeaturedPosts(): Promise<Post[]> {
