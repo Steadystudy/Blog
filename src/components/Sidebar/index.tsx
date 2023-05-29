@@ -45,10 +45,12 @@ export default function Sidebar() {
   return (
     <section className="flex justify-between w-full bg-green-hot lg:flex-col lg:h-full lg:fixed lg:left-0 lg:w-[80px]">
       <ul className="flex lg:flex-col">
-        {menu.map(({ href, clickIcon, icon, name }) => (
-          <Link key={href} href={href} aria-label={name}>
-            <MenuBox border={pathname === href}>{pathname === href ? clickIcon : icon}</MenuBox>
-          </Link>
+        {menu.map(({ href, clickIcon, icon, name }, idx) => (
+          <li key={name + idx}>
+            <Link key={href} href={href} aria-label={name}>
+              <MenuBox border={pathname === href}>{pathname === href ? clickIcon : icon}</MenuBox>
+            </Link>
+          </li>
         ))}
       </ul>
       <div className="items-end ">

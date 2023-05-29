@@ -1,4 +1,3 @@
-import Header from '@/components/Header';
 import './globals.css';
 import Footer from '@/components/Footer';
 import { Noto_Sans } from 'next/font/google';
@@ -15,7 +14,7 @@ export const metadata = {
   },
 };
 
-const sans = Noto_Sans({ subsets: ['latin'], weight: '500' });
+const sans = Noto_Sans({ subsets: ['latin'], weight: '500', display: 'swap' });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
