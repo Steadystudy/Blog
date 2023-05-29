@@ -9,7 +9,7 @@ export default async function CarouselPosts() {
       <h2>You may like</h2>
       <MultiCarousel>
         {posts?.map((post) => (
-          <PostCard key={post.id} post={post}></PostCard>
+          <PostCard key={post.id} post={post} displayTime={false}></PostCard>
         ))}
       </MultiCarousel>
     </article>
