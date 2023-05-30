@@ -2,6 +2,7 @@ import './globals.css';
 import Footer from '@/components/Footer';
 import { Noto_Sans } from 'next/font/google';
 import Sidebar from '@/components/Sidebar';
+import Providers from '@/provider/ThemeProvider';
 
 export const metadata = {
   title: {
@@ -20,9 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={sans.className}>
       <body className="flex flex-col w-full lg:pl-[80px] h-full">
-        <Sidebar />
-        <main className="relative lg:max-w-[900px] mx-auto w-full grow">{children}</main>
-        <Footer />
+        <Providers>
+          <Sidebar />
+          <main className="relative lg:max-w-[900px] mx-auto w-full grow">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
