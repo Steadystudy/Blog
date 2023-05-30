@@ -5,13 +5,13 @@ tailwindcss에서는 가변적인 변수를 받아와 스타일을 적용할 수
 
 전체코드
 
-```
+```js
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
 
 export default function ScrollProgressBar() {
-  const [progress, setProgress] = useState<string>('0');
+  const [progress, setProgress] = useState < string > '0';
 
   const calculateProgress = useCallback(() => {
     const { clientHeight } = document.documentElement;
@@ -38,12 +38,11 @@ export default function ScrollProgressBar() {
 
   return (
     <div className="fixed top-[60px] w-full h-2 lg:hidden z-20">
-     // 여기서 문제가 발생했다.
+      // 여기서 문제가 발생했다.
       <div className={`w-[${progress}%] h-full bg-black`}></div>
     </div>
   );
 }
-
 ```
 
 ### 문제의 전개

@@ -21,7 +21,7 @@ export default function FilteredPosts({ posts, categories }: Props) {
     selected === ALL_POSTS ? posts : posts.filter((post) => post.category === selected);
 
   return (
-    <section className="flex m-4">
+    <section className="flex m-4 max-sm:flex-col">
       <PostList posts={filtered} />
       <Categories
         categories={[ALL_POSTS, ...categories]}

@@ -13,7 +13,7 @@ interface Props {
 export default function MarkdownViewer({ content }: Props) {
   return (
     <ReactMarkdown
-      className="prose xl:prose-xl max-w-none"
+      className="prose xl:prose-xl max-w-none dark:prose-invert dark:prose-headings:text-green-100"
       components={{
         code({ node, inline, className, children, ...props }) {
           const match = /language-(\w+)/.exec(className || '');
@@ -22,7 +22,7 @@ export default function MarkdownViewer({ content }: Props) {
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
           ) : (
-            <code className={className} {...props}>
+            <code className={`dark:text-green-100`} {...props}>
               {children}
             </code>
           );

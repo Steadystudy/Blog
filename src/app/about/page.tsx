@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <>
       <Introduction />
-      <section className="flex flex-col items-center max-w-xl gap-4 mx-auto bg-gray-100">
+      <section className="flex flex-col items-center max-w-xl gap-4 mx-auto rounded-md bg-green-hot">
         <h1>Who Am I?</h1>
         <p>
           비전공자이지만 뒤늦게 코딩에 흥미가 생겨 열심히 배우고 있습니다.
