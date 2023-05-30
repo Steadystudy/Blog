@@ -9,6 +9,7 @@ import { IoHomeOutline, IoHomeSharp } from 'react-icons/io5';
 import { FiGithub } from 'react-icons/fi';
 import { BsFolder } from 'react-icons/bs';
 import { FaFolderOpen } from 'react-icons/fa';
+import DarkModeToggleBtn from './DarkModeToggleBtn';
 
 const menu = [
   {
@@ -53,13 +54,20 @@ export default function Sidebar() {
           </li>
         ))}
       </ul>
-      <div className="items-end ">
-        <Link aria-label="github" target="_blank" href="https://github.com/Steadystudy">
+      <ul className="flex lg:flex-col">
+        <li>
           <MenuBox>
-            <FiGithub />
+            <DarkModeToggleBtn />
           </MenuBox>
-        </Link>
-      </div>
+        </li>
+        <li>
+          <Link aria-label="github" target="_blank" href="https://github.com/Steadystudy">
+            <MenuBox>
+              <FiGithub />
+            </MenuBox>
+          </Link>
+        </li>
+      </ul>
     </section>
   );
 }
