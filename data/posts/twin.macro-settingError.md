@@ -11,7 +11,7 @@ tailwindcss에서는 가변적인 변수를 받아와 스타일을 적용할 수
 import { useCallback, useEffect, useState } from 'react';
 
 export default function ScrollProgressBar() {
-  const [progress, setProgress] = useState < string > '0';
+  const [progress, setProgress] = useState<string>('0');
 
   const calculateProgress = useCallback(() => {
     const { clientHeight } = document.documentElement;
