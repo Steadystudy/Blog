@@ -5,11 +5,11 @@ import PostCard from './PostCard';
 export default async function CarouselPosts() {
   const posts = await getNonFeaturedPosts();
   return (
-    <article>
+    <article className="mb-12">
       <h2>You may like</h2>
       <MultiCarousel>
         {posts?.map((post) => (
-          <PostCard key={post.id} post={post}></PostCard>
+          <PostCard key={post.id} post={post} displayTime={false}></PostCard>
         ))}
       </MultiCarousel>
     </article>
