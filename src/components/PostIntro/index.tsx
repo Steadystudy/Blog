@@ -15,7 +15,7 @@ export default function PostIntro({ title, description, category, date }: Props)
       <div className="flex justify-between mt-2">
         <Link
           href={`/posts?category=${category}`}
-          className="p-[0.15rem] bg-yellow-100 hover:bg-green-light "
+          className="p-[0.15rem] bg-yellow-100 hover:bg-green-light dark:bg-pink-500 dark:hover:bg-green-light"
         >
           {category}
         </Link>
@@ -30,7 +30,7 @@ export default function PostIntro({ title, description, category, date }: Props)
         </p>
       </div>
       <p className="self-end">{date.toString()}</p>
-      <div className="my-4 border-2 border-lime-400"></div>
+      <div className="my-4 border-2 border-green-light"></div>
     </section>
   );
 }

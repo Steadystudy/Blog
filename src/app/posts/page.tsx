@@ -6,7 +6,7 @@ export default async function PostsPage() {
   const categories = [...new Set(posts.map((post) => post.category))];
 
   return (
-    <section>
+    <section className="mt-12">
       <FilteredPosts posts={posts} categories={categories} />
     </section>
   );
