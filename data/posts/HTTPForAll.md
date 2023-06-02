@@ -4,8 +4,7 @@ HTTP 전체적으로 정리한 글이 없어서 아래 강의를 듣고 개인�
 이해하기 어려울 수 있으니 자세한 내용은 강의를 수강해주세요!  
 출처:[모든 개발자를 위한 HTTP 웹 기본 지식](https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC)
 
-<details>
-  <summary>1. 인터넷 네트워크</summary>
+## 1. 인터넷 네트워크
 
 ### 인터넷을 통해 수많은 컴퓨터 중 원하는 컴퓨터에게 전달하는 방법?
 
@@ -62,10 +61,7 @@ IP는 기억하기 어렵고, 변경될 수 있다. 그러므로 Domain Name Sys
 - DNS 서버에 도메인 명에 따른 IP가 있다.
 - 클라이언트에서 DNS 서버에 도메인 명을 보내면 서버에서 IP를 보내준다.
 
-</details>
-
-<details>
-  <summary>2. URI와 웹 브라우저 요청 흐름</summary>
+## 2. URI와 웹 브라우저 요청 흐름
 
 ### URI(Uniform Resource Identifier)
 
@@ -90,10 +86,7 @@ HTTP는 데이터가 plain text로 전송되기 때문에 보안되지 않은 �
 HTPS는 SSL 또는 TLS 프로토콜을 사용하여 데이터를 암호화하기 때문에 HTTP보다 안전합니다. HTTPS 연결을 설정하기 위해서 SSL/TLS 인증서가 필요하고 이 인증서는 신뢰할 수 있는 인증 기관에서 발급되며, 웹 사이트의 신뢰성과 신원을 확인합니다. 브라우저가 HTTPS를 사용하여 웹사이트를 연결할 때 SSL/TLS 인증서를 확인하고 유효하고 변경되지 않았는지 확인합니다.  
 요약하면, HTTPS는 브라우저와 웹 서버 간에 전송되는 데이터를 암호화하여 HTTP보다 추가적인 보안 기능을 제공합니다. 이를 통해 로그인 자격 증명, 신용 카드 정보 및 기타 개인 데이터와 같은 민감한 정보가 악의적인 사용자에 의해 가로채거나 수정되는 것을 방지할 수 있습니다.
 
-</details>
-
-<details>
-  <summary>3. HTTP 기본</summary>
+## 3. HTTP 기본
 
 ### HTTP
 
@@ -172,10 +165,7 @@ HTPS는 SSL 또는 TLS 프로토콜을 사용하여 데이터를 암호화하기
 
    - 실제 전송할 데이터
 
-</details>
-
-<details>
-  <summary>4. HTTP 메서드</summary>
+## 4. HTTP 메서드
 
 ### URI 고민
 
@@ -252,10 +242,8 @@ HTPS는 SSL 또는 TLS 프로토콜을 사용하여 데이터를 암호화하기
     **캐시가능**
 - 응답 결과 리소스를 캐시해서 사용해도 되는가?
 - GET, HEAD, POST, PATCH 캐시 가능하다. 보통은 GET, HEAD 정도만 캐시로 사용
-</details>
 
-<details>
-  <summary>5. HTTP 메서드 활용</summary>
+## 5. HTTP 메서드 활용
 
 ### 클라이언트에서 서버로 데이터 전송하는 방법
 
@@ -311,10 +299,8 @@ HTPS는 SSL 또는 TLS 프로토콜을 사용하여 데이터를 암호화하기
 - HTML FORM은 GET, POST만 지원
 - 컨트롤 URI
   - HTTP 메서드로 해결하기 애매한 경우 POST로 /new, /edit, /delete같이 동사를 직접 사용하여 컨트롤 URI를 만든다.
-  </details>
 
-<details>
-  <summary>6. HTTP 상태코드</summary>
+## 6. HTTP 상태코드
 
 ### 상태 코드
 
@@ -379,10 +365,8 @@ HTPS는 SSL 또는 TLS 프로토콜을 사용하여 데이터를 암호화하기
 - 서버에 문제가 있기 때문에 재시도 하면 성공할 수도 있다.
 - 500 Internal Server Error : 서버 내부 오류로 발생
 - 503 Service Unavailable : 서버가 일시적인 과부하 또는 예정된 작업으로 요청을 처리할 수 없을 때 발생
-</details>
 
-<details>
-  <summary>7. HTTP 헤더1 - 일반 헤더</summary>
+## 7. HTTP 헤더1 - 일반 헤더
 
 ### HTTP BODY
 
@@ -530,10 +514,8 @@ ex. path=/home
 - SameSite
   - XSRF 공격 방지
   - 요청 도메인과 쿠키에 설정된 도메인이 같은 경우만 쿠키 전송
-  </details>
 
-<details>
-  <summary>8. HTTP 헤더2 - 캐시와 조건부</summary>
+## 8. HTTP 헤더2 - 캐시와 조건부
 
 ### 캐시 기본 동작
 
@@ -599,5 +581,3 @@ ETag, If-None-Match
   - must-revalidate (캐시 만료후 최초 조회시 origin 서버에 검증해야함)
 
   완전 무효화하기 위해서는 Cache-Control: no-cache, no-store, must-revalidate
-
-</details>
