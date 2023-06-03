@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import { IoHomeOutline, IoHomeSharp } from 'react-icons/io5';
 import { FiGithub } from 'react-icons/fi';
 import { BsFolder } from 'react-icons/bs';
+import { SiVelog } from 'react-icons/si';
 import { FaFolderOpen } from 'react-icons/fa';
 import DarkModeToggleBtn from './DarkModeToggleBtn';
 
@@ -59,6 +60,13 @@ export default function Sidebar() {
           <MenuBox>
             <DarkModeToggleBtn />
           </MenuBox>
+        </li>
+        <li>
+          <Link aria-label="velog" target="_blank" href="https://velog.io/@steadystudy">
+            <MenuBox>
+              <SiVelog />
+            </MenuBox>
+          </Link>
         </li>
         <li>
           <Link aria-label="github" target="_blank" href="https://github.com/Steadystudy">
