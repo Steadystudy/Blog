@@ -1,0 +1,7 @@
+.react-multi-carousel-dot button {
+  border-color: #06b6d4;
+}
+
+.react-multi-carousel-dot--active button {
+  background: #06b6d4;
+}
