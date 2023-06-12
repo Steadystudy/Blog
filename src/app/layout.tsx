@@ -6,8 +6,8 @@ import Providers from '@/provider/ThemeProvider';
 
 export const metadata = {
   title: {
-    default: 'MSG',
-    template: 'MSG | %s',
+    default: 'Steadystudy',
+    template: '%s | Steadystudy',
   },
   description: '프론트엔드 개발자 MSG 블로그',
   icons: {
