@@ -27,7 +27,15 @@ export default function MultiCarousel({ children }: Props) {
     },
   };
   return (
-    <Carousel itemClass="mx-2" infinite autoPlay className="gap-2" responsive={responsive} ssr>
+    <Carousel
+      itemClass="mx-2"
+      infinite
+      autoPlay
+      className="gap-2"
+      responsive={responsive}
+      ssr
+      showDots={false}
+    >
       {children}
     </Carousel>
   );

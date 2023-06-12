@@ -1,3 +1,4 @@
+import BookList from '@/components/BookList';
 import Introduction from '@/components/Introduction';
 import ProjectBox from '@/components/ProjectBox';
 import { Metadata } from 'next';
@@ -10,7 +11,7 @@ export default function AboutPage() {
   return (
     <>
       <Introduction />
-      <section className="flex flex-col items-center max-w-xl gap-4 mx-auto rounded-md bg-green-hot">
+      <section className="flex flex-col items-center max-w-xl gap-4 mx-auto">
         <h1>Who Am I?</h1>
         <p>
           비전공자이지만 뒤늦게 코딩에 흥미가 생겨 열심히 배우고 있습니다.
@@ -22,6 +23,8 @@ export default function AboutPage() {
         <p>React, Next, Typescript, Git</p>
         <h1>Career</h1>
         <p>신입 개발자로 취업을 목표로 하고 있습니다!</p>
+        <h1>Books</h1>
+        <BookList />
         <h1>Projects</h1>
         <div className="grid w-full grid-cols-1 gap-4 mb-8 sm:grid-cols-2 md:grid-cols-3">
           <ProjectBox
