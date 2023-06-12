@@ -1,8 +1,7 @@
 'use client';
 
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 import Book from './Book';
+import SingleCarousel from '../SingleCarousel';
 
 const BOOKS = [
   {
@@ -34,33 +33,22 @@ const BOOKS = [
     description:
       '개발에 정체기가 올 때 읽은 책으로 저의 목표 설정에 도움을 준 책입니다. 의도적 수련을 통해 현실에 안주하지 않고 성장하고 있습니다.',
   },
+  {
+    name: '리팩터링 2판',
+    thumnail: 'refactoring.jpeg',
+    description: `드림코딩 리팩토링의 모든것 강의를 들으며 같이 책을 읽었습니다. 기본적인 리팩토링을 포함해 캡슐화, API 리팩터링, 데이터 조직화 등 코드를 더 깔끔하게 작성하는 법에 대해 배울 수 있었습니다.`,
+  },
 ];
 
 export default function BookList() {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
   return (
-    <Carousel responsive={responsive} className="w-full" showDots={false}>
-      {BOOKS.map(({ name, thumnail, description }, idx) => (
-        <Book name={name} thumnail={thumnail} description={description} key={name + idx} />
-      ))}
-    </Carousel>
+    <>
+      <h1>Books</h1>
+      <SingleCarousel>
+        {BOOKS.map(({ name, thumnail, description }, idx) => (
+          <Book name={name} thumnail={thumnail} description={description} key={name + idx} />
+        ))}
+      </SingleCarousel>
+    </>
   );
 }
