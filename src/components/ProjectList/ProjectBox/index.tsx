@@ -14,8 +14,8 @@ export default function ProjectBox({ link, title, description }: Props) {
       className="border-b group hover:border-b-cyan-500 w-full min-h-[80px]"
     >
       <div className="flex flex-col items-center">
-        <h2 className=" group-hover:text-cyan-500">{title}</h2>
-        <p>{description}</p>
+        <h2 className="group-hover:text-cyan-500">{title}</h2>
+        <p className="text-center group-hover:text-cyan-500">{description}</p>
       </div>
     </Link>
   );

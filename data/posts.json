@@ -88,5 +88,14 @@
     "category": "Trouble shooting",
     "path": "twin.macro-settingError",
     "featured": false
+  },
+  {
+    "id": "11",
+    "title": "네트워크, HTML 헤더 총 정리",
+    "description": "영한님 강의, HTTP 완벽가이드 책을 보고 정리",
+    "date": "2023-06-01",
+    "category": "CS공부",
+    "path": "HTTPForAll",
+    "featured": false
   }
 ]
