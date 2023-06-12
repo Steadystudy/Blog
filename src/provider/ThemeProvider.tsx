@@ -12,5 +12,6 @@ export default function Providers({ children }: { children: ReactNode }) {
     <DynamicThemeProvider enableSystem={true} attribute="class">
       {children}
     </DynamicThemeProvider>
-  );
+  )
 }
+   
