@@ -46,7 +46,13 @@ export default function BookList() {
       <h1>Books</h1>
       <SingleCarousel>
         {BOOKS.map(({ name, thumnail, description }, idx) => (
-          <Book name={name} thumnail={thumnail} description={description} key={name + idx} />
+          <Book
+            name={name}
+            thumnail={thumnail}
+            description={description}
+            key={name + idx}
+            priority={idx === 0}
+          />
         ))}
       </SingleCarousel>
     </>
