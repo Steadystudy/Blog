@@ -12,7 +12,7 @@ export default function PostCard({
 }: Props) {
   return (
     <Link href={`/posts/${path}`}>
-      <article className="relative rounded-md shadow-md bg-green-50 hover:shadow-2xl">
+      <article className="relative rounded-md shadow-md bg-yellow-light hover:shadow-2xl">
         <time
           className={`absolute block text-gray-500 top-4 right-4 ${
             !displayTime && 'hidden'

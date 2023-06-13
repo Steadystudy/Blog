@@ -14,6 +14,7 @@ export default function Book({ name, description, thumnail, priority }: Props) {
         <Image
           src={`/images/${thumnail}`}
           alt={name}
+          sizes="100"
           className="object-cover"
           fill
           priority={priority}

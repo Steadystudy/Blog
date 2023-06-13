@@ -16,6 +16,7 @@ export default function Lecture({ title, description, thumnail, link, priority }
         <Image
           src={`/images/${thumnail}`}
           alt={title}
+          sizes="100vw"
           className="object-cover"
           fill
           priority={priority}
