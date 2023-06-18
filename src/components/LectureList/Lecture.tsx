@@ -6,13 +6,21 @@ type Props = {
   description: string;
   thumnail: string;
   link: string;
+  priority: boolean;
 };
 
-export default function Lecture({ title, description, thumnail, link }: Props) {
+export default function Lecture({ title, description, thumnail, link, priority }: Props) {
   return (
     <div className="flex flex-col items-center justify-center gap-4 mx-auto w-96">
       <div className="relative h-40 w-72">
-        <Image src={`/images/${thumnail}`} alt={title} className="object-cover" fill />
+        <Image
+          src={`/images/${thumnail}`}
+          alt={title}
+          sizes="100vw"
+          className="object-cover"
+          fill
+          priority={priority}
+        />
       </div>
       <h2>{title}</h2>
       <p>{description}</p>

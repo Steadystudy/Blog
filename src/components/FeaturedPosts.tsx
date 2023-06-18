@@ -2,7 +2,8 @@ import { getFeaturedPosts } from '@/service/posts';
 import PostList from './PostList';
 
 export default async function FeaturedPosts() {
-  const posts = await getFeaturedPosts(5);
+  const POST_COUNT = 5;
+  const posts = await getFeaturedPosts(POST_COUNT);
 
   return (
     <article>

@@ -45,7 +45,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <section className="flex justify-between w-full bg-green-hot lg:flex-col lg:h-full lg:fixed lg:left-0 lg:w-[80px]">
+    <section className="flex justify-between w-full bg-blue-hot lg:flex-col lg:h-full fixed lg:left-0 lg:w-[80px] z-10">
       <ul className="flex lg:flex-col">
         {menu.map(({ href, clickIcon, icon, name }, idx) => (
           <li key={name + idx}>

@@ -25,7 +25,7 @@ export default async function PostPage({ params: { slug } }: Props) {
       <PostIntro title={title} category={category} date={date} description={description} />
       <MarkdownViewer content={content} />
       {/* Todo: 이전글 다음글 어떻게 보여줄지? */}
-      <section className="flex gap-4 mt-16">
+      <section className="flex justify-between gap-4 mt-16">
         {prev && <AdjacentPostCard type="prev" post={prev} />}
         {next && <AdjacentPostCard type="next" post={next} />}
       </section>

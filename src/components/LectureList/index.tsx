@@ -51,6 +51,7 @@ export default function LectureList() {
             title={title}
             description={description}
             link={link}
+            priority={idx === 0}
           />
         ))}
       </SingleCarousel>

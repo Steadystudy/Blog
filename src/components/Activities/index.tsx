@@ -17,7 +17,7 @@ export default function Activities() {
   return (
     <>
       <h1>Activities</h1>
-      <Image src={`/images/프로그래머스.jpeg`} alt="프로그래머스" width={400} height={400} />
+      <Image src={`/images/프로그래머스.jpeg`} alt="프로그래머스" width={400} height={300} />
       <MarkdownViewer content={ACTIVITES[0].content} />
     </>
   );

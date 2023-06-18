@@ -4,7 +4,7 @@ import RotatingText from './RotatingText';
 
 export default function Introduction() {
   return (
-    <section className="flex flex-col items-center gap-4 my-4">
+    <section className="flex flex-col items-center gap-4 my-8">
       <Image
         className="rounded-full"
         width={200}
