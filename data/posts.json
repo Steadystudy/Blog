@@ -106,5 +106,14 @@
     "category": "트러블슈팅",
     "path": "clientComponentAsyncBug",
     "featured": false
+  },
+  {
+    "id": "13",
+    "title": "next 13에서 GTM을 사용하여 GA4 구축하기",
+    "description": "GA4 in next 13 using GTM",
+    "date": "2023-06-29",
+    "category": "Next13",
+    "path": "GTM",
+    "featured": false
   }
 ]
