@@ -3,7 +3,7 @@ import BookList from '@/components/BookList';
 import Introduction from '@/components/Introduction';
 import LectureList from '@/components/LectureList';
 import ProjectList from '@/components/ProjectList';
-import ProjectBox from '@/components/ProjectList/ProjectBox';
+import SkillList from '@/components/SkillList';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,14 +23,7 @@ export default function AboutPage() {
           부족하지만 열심히 해서 풀스택 개발자가 되는 것이 목표입니다.
           <br />
         </p>
-        <h1>Skills</h1>
-        <div className="flex flex-wrap justify-center w-full gap-2">
-          <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black" />
-          <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white" />
-          <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-          <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=TailwindCss&logoColor=white" />
-          <img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" />
-        </div>
+        <SkillList />
         <LectureList />
         <ProjectList />
         <BookList />
