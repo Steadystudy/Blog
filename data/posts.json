@@ -115,5 +115,14 @@
     "category": "Next13",
     "path": "GTM",
     "featured": false
+  },
+  {
+    "id": "14",
+    "title": "CSR/SSR with Next.js",
+    "description": "원티드 프리온보딩 챌린지",
+    "date": "2023-07-01",
+    "category": "원티드",
+    "path": "preonboarding",
+    "featured": false
   }
 ]
