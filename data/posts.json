@@ -22,7 +22,7 @@
     "title": "json파일 type error (typescript)",
     "description": "Typescript에서 JSON 파일을 import했을 때 일어날 수 있는 타입 오류",
     "date": "2023-01-22",
-    "category": "Trouble shooting",
+    "category": "트러블슈팅",
     "path": "typeError-D3",
     "featured": false
   },
@@ -85,7 +85,7 @@
     "title": "twin.macro 설치하다 생긴 일",
     "description": "Next13, emotion, twin.macro 세팅 문제 (현재 진행형)",
     "date": "2023-05-26",
-    "category": "Trouble shooting",
+    "category": "트러블슈팅",
     "path": "twin.macro-settingError",
     "featured": false
   },
@@ -96,6 +96,33 @@
     "date": "2023-06-01",
     "category": "CS공부",
     "path": "HTTPForAll",
+    "featured": false
+  },
+  {
+    "id": "12",
+    "title": "Client component infinite rendering",
+    "description": "next13버전 client component에 async 붙이면 안되는 이유",
+    "date": "2023-06-27",
+    "category": "트러블슈팅",
+    "path": "clientComponentAsyncBug",
+    "featured": false
+  },
+  {
+    "id": "13",
+    "title": "next 13에서 GTM을 사용하여 GA4 구축하기",
+    "description": "GA4 in next 13 using GTM",
+    "date": "2023-06-29",
+    "category": "Next13",
+    "path": "GTM",
+    "featured": false
+  },
+  {
+    "id": "14",
+    "title": "CSR/SSR with Next.js",
+    "description": "원티드 프리온보딩 챌린지",
+    "date": "2023-07-01",
+    "category": "원티드",
+    "path": "preonboarding",
     "featured": false
   }
 ]
