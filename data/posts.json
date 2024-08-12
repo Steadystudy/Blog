@@ -128,10 +128,10 @@
   {
     "id": "15",
     "title": "나혼자 프로젝트(1)",
-    "description": "원티드 프리온보딩 챌린지",
+    "description": "풀스택 개발자 길의 첫걸음",
     "date": "2024-08-12",
-    "category": "프로젝트",
-    "path": "soloproject/1",
+    "category": "project",
+    "path": "soloproject1",
     "featured": true
   }
 ]
