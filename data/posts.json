@@ -124,5 +124,14 @@
     "category": "원티드",
     "path": "preonboarding",
     "featured": false
+  },
+  {
+    "id": "15",
+    "title": "나혼자 프로젝트(1)",
+    "description": "원티드 프리온보딩 챌린지",
+    "date": "2024-08-12",
+    "category": "프로젝트",
+    "path": "soloproject/1",
+    "featured": true
   }
 ]
