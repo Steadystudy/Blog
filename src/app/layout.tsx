@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex flex-col w-full lg:pl-[80px] h-full">
         <Providers>
           <Sidebar />
-          <main className="relative lg:max-w-[900px] mx-auto w-full grow mt-10">{children}</main>
+          <main className="relative lg:max-w-[960px] mx-auto w-full grow mt-10">{children}</main>
           <Footer />
         </Providers>
         <noscript
