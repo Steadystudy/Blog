@@ -1,12 +1,3 @@
----
-emoji: ✍️
-title: 나 혼자 프로젝트 #1
-date: 2024-08-12 19:59
-author: Steadystudy
-tags: project
-categories: hackatone, project
----
-
 # 나 혼자 프로젝트 #1
 
 오늘 싸피에서만 진행하는 신한은행 해커톤 서류 결과 발표가 났다.  
