@@ -132,6 +132,42 @@
     "date": "2024-08-12",
     "category": "project",
     "path": "soloproject1",
+    "featured": false
+  },
+  {
+    "id": "16",
+    "title": "나혼자 프로젝트(2)",
+    "description": "풀스택 개발자 길의 첫걸음",
+    "date": "2024-08-14",
+    "category": "project",
+    "path": "soloproject2",
+    "featured": false
+  },
+  {
+    "id": "17",
+    "title": "나혼자 프로젝트(3)",
+    "description": "풀스택 개발자 길의 첫걸음",
+    "date": "2024-08-21",
+    "category": "project",
+    "path": "soloproject3",
+    "featured": false
+  },
+  {
+    "id": "18",
+    "title": "graphql playground 태그 박스 사라지지 않는 이슈",
+    "description": "graphql trouble shooting",
+    "date": "2024-08-28",
+    "category": "graphql",
+    "path": "graphqlPlaygroundBug",
+    "featured": false
+  },
+  {
+    "id": "19",
+    "title": "SSAFY 공통 프로젝트 (프로젝트명: 목플갱어) 회고록",
+    "description": "아이스브레이킹용 성대모사 게임 웹서비스 개발",
+    "date": "2025-02-22",
+    "category": "project",
+    "path": "mockplganger",
     "featured": true
   },
   {
