@@ -6,7 +6,7 @@
     "date": "2023-01-13",
     "category": "D3",
     "path": "summary-D3",
-    "featured": true
+    "featured": false
   },
   {
     "id": "2",
@@ -15,7 +15,7 @@
     "date": "2023-01-14",
     "category": "D3",
     "path": "dataJoin-D3",
-    "featured": true
+    "featured": false
   },
   {
     "id": "3",
@@ -168,15 +168,6 @@
     "date": "2025-02-22",
     "category": "project",
     "path": "mockplganger",
-    "featured": true
-  },
-  {
-    "id": "16",
-    "title": "나혼자 프로젝트(2)",
-    "description": "풀스택 개발자 길의 첫걸음",
-    "date": "2024-08-14",
-    "category": "project",
-    "path": "soloproject2",
     "featured": true
   }
 ]

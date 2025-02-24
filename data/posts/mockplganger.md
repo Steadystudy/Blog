@@ -94,8 +94,9 @@ MBTI E가 1명 I가 5명으로 이뤄진 우리팀은 친해지기 쉽지 않았
 
 - **Sockjs와 Stomp로 웹소켓 통신으로 게임 진행**
 
-![Image](https://github.com/user-attachments/assets/15ef46ff-586f-44e6-817f-081edc687a73)
-![Image](https://github.com/user-attachments/assets/ceb88afe-b5b0-4c8f-9592-3a688e2a2e84)
+![Image](/mockplganger/1.png)
+![Image](/mockplganger/2.png)
+
 
 - **방 참가 시 통신 시작:** 사용자가 방에 참가하면, 해당 방 URL로 publish를 실행하고 동시에 subscribe를 통해 서버로부터 실시간 데이터를 받아옵니다.
 - 서버에서 전달받는 데이터는 게임 시작, 라운드 시작, 캐릭터 선택, 결과 등 다양한 이벤트를 타입으로 정의하여 일관된 데이터 처리와 UI 업데이트를 가능하게 했습니다.
@@ -116,7 +117,8 @@ export const GAME_RESPONSE = {
 
 - **클라이언트 상태 관리 (props drilling 해결)**
 
-![Image](https://github.com/user-attachments/assets/ff2e60d8-b452-4639-ac78-5078f1b8c70d)
+
+![Image](/mockplganger/3.png)
 
 - Playground 컴포넌트와 GameUserList 컴포넌트를 나누면서, Playground 영역에서 변경된 값을 다른 컴포넌트에 전달하는 과정에서 상태 관리가 복잡해졌습니다.
 
@@ -174,21 +176,20 @@ export const GAME_RESPONSE = {
 - **홍보**
   - SSAFY Mattermost를 통해 홍보를 진행했습니다.
 
-![Image](https://github.com/user-attachments/assets/95b30496-2878-49da-8a80-8d93e0f616e4)
+![Image](/mockplganger/4.png)
 
 - **유저 반응**
 
-![Image](https://github.com/user-attachments/assets/e87d12ac-8fb6-43dd-adde-3c8b4614281e)
-
-![Image](https://github.com/user-attachments/assets/ef525cd7-d018-4cdd-b6c9-4e6213138ebe)
-
-![Image](https://github.com/user-attachments/assets/e57518cb-5bf5-4a9d-8a47-03b0e1695d9a)
+![Image](/mockplganger/5.png)
+![Image](/mockplganger/6.png)
+![Image](/mockplganger/7.png)
 
 - **Google Analytics**
 
-![Image](https://github.com/user-attachments/assets/1af1ef95-279f-4367-8793-4588699ad176)
-![Image](https://github.com/user-attachments/assets/137e7fb7-ed89-4edc-9f84-0120f781fb54)
-![Image](https://github.com/user-attachments/assets/a24a511e-6237-4e6d-b874-e8029adeb564)
+![Image](/mockplganger/8.png)
+![Image](/mockplganger/9.png)
+![Image](/mockplganger/10.png)
+
 
 ## 느낀점
 
