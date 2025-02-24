@@ -97,6 +97,7 @@ MBTI E가 1명 I가 5명으로 이뤄진 우리팀은 친해지기 쉽지 않았
 ![Image](/mockplganger/1.png)
 ![Image](/mockplganger/2.png)
 
+
 - **방 참가 시 통신 시작:** 사용자가 방에 참가하면, 해당 방 URL로 publish를 실행하고 동시에 subscribe를 통해 서버로부터 실시간 데이터를 받아옵니다.
 - 서버에서 전달받는 데이터는 게임 시작, 라운드 시작, 캐릭터 선택, 결과 등 다양한 이벤트를 타입으로 정의하여 일관된 데이터 처리와 UI 업데이트를 가능하게 했습니다.
 
@@ -115,6 +116,7 @@ export const GAME_RESPONSE = {
 ```
 
 - **클라이언트 상태 관리 (props drilling 해결)**
+
 
 ![Image](/mockplganger/3.png)
 
@@ -187,6 +189,7 @@ export const GAME_RESPONSE = {
 ![Image](/mockplganger/8.png)
 ![Image](/mockplganger/9.png)
 ![Image](/mockplganger/10.png)
+
 
 ## 느낀점
 
