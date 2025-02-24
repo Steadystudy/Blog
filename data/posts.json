@@ -6,7 +6,7 @@
     "date": "2023-01-13",
     "category": "D3",
     "path": "summary-D3",
-    "featured": true
+    "featured": false
   },
   {
     "id": "2",
@@ -15,7 +15,7 @@
     "date": "2023-01-14",
     "category": "D3",
     "path": "dataJoin-D3",
-    "featured": true
+    "featured": false
   },
   {
     "id": "3",
