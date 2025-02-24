@@ -160,5 +160,14 @@
     "category": "graphql",
     "path": "graphqlPlaygroundBug",
     "featured": false
+  },
+  {
+    "id": "19",
+    "title": "SSAFY 공통 프로젝트 (프로젝트명: 목플갱어) 회고록",
+    "description": "아이스브레이킹용 성대모사 게임 웹서비스 개발",
+    "date": "2025-02-22",
+    "category": "project",
+    "path": "mockplganger",
+    "featured": true
   }
 ]
