@@ -132,7 +132,7 @@
     "date": "2024-08-12",
     "category": "project",
     "path": "soloproject1",
-    "featured": true
+    "featured": false
   },
   {
     "id": "16",
@@ -141,7 +141,7 @@
     "date": "2024-08-14",
     "category": "project",
     "path": "soloproject2",
-    "featured": true
+    "featured": false
   },
   {
     "id": "17",
@@ -150,7 +150,7 @@
     "date": "2024-08-21",
     "category": "project",
     "path": "soloproject3",
-    "featured": true
+    "featured": false
   },
   {
     "id": "18",
