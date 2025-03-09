@@ -192,6 +192,7 @@ export const GAME_RESPONSE = {
 ![Image](/mockplganger/9.png)
 ![Image](/mockplganger/10.png)
 
+
 ## 느낀점
 
 - 6일간 주 80시간 가까이 개발에 집중하며 사용자 피드백을 적극 반영한 결과, 개발에 대한 큰 재미와 열정을 느낄 수 있었습니다.
