@@ -21,7 +21,7 @@
   --base-font-size: 1rem;
 }
 
-[data-theme='dark'] {
+.dark {
   /* 다크 모드 - 퍼플 계열 */
   --background: #0f0a1f;
   --foreground: #e2e2f5;

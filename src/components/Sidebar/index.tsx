@@ -11,6 +11,7 @@ import { BsFolder } from 'react-icons/bs';
 import { SiVelog } from 'react-icons/si';
 import { FaFolderOpen } from 'react-icons/fa';
 import DarkModeToggleBtn from './DarkModeToggleBtn';
+import { useTheme } from 'next-themes';
 
 const menu = [
   {
@@ -43,13 +44,18 @@ const menu = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
 
   return (
-    <section className="flex justify-between w-full bg-blue-hot lg:flex-col lg:h-full fixed lg:left-0 lg:w-[80px] z-10">
-      <ul className="flex lg:flex-col">
+    <section className="flex justify-between w-full bg-primary  lg:flex-col lg:h-full fixed lg:left-0 lg:w-[80px] z-10">
+      <ul className="flex text-white lg:flex-col">
         {menu.map(({ href, clickIcon, icon, name }, idx) => (
-          <li key={name + idx}>
-            <Link key={href} href={href} aria-label={name}>
+          <li key={name}>
+            <Link href={href}>
               <MenuBox border={pathname === href}>{pathname === href ? clickIcon : icon}</MenuBox>
             </Link>
           </li>
@@ -57,7 +63,7 @@ export default function Sidebar() {
       </ul>
       <ul className="flex lg:flex-col">
         <li>
-          <MenuBox>
+          <MenuBox onClick={toggleTheme}>
             <DarkModeToggleBtn />
           </MenuBox>
         </li>
