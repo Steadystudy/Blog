@@ -5,10 +5,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'blue-hot': '#00C4FF',
-        'green-light': '#B8F3B8',
-        'yellow-hot': '#FFE7A0',
-        'yellow-light': '#FFF5B8',
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary: {
+          DEFAULT: 'var(--primary)',
+          foreground: 'var(--primary-foreground)',
+        },
+        secondary: {
+          DEFAULT: 'var(--secondary)',
+          foreground: 'var(--secondary-foreground)',
+        },
+        muted: {
+          DEFAULT: 'var(--muted)',
+          foreground: 'var(--muted-foreground)',
+        },
+        accent: {
+          DEFAULT: 'var(--accent)',
+          foreground: 'var(--accent-foreground)',
+        },
+        border: 'var(--border)',
+        input: 'var(--input)',
       },
     },
   },

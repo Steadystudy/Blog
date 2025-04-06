@@ -9,7 +9,7 @@ const DARK = 'dark';
 
 export default function DarkModeToggleBtn() {
   const [mounted, setMounted] = useState(false);
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { systemTheme, theme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -19,13 +19,11 @@ export default function DarkModeToggleBtn() {
     return null;
   }
 
-  const themeHandler = () => (currentTheme === DARK ? setTheme(LIGHT) : setTheme(DARK));
-
   const currentTheme = theme === 'system' ? systemTheme : theme;
 
   return (
-    <button type="button" onClick={mounted && themeHandler}>
+    <div className="w-full h-full flex items-center justify-center text-foreground hover:text-primary">
       {currentTheme === DARK ? <MdSunny /> : <MdDarkMode />}
-    </button>
+    </div>
   );
 }
