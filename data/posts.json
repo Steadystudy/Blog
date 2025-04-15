@@ -169,5 +169,14 @@
     "category": "project",
     "path": "mockplganger",
     "featured": true
+  },
+  {
+    "id": "20",
+    "title": "SSAFY 특화 프로젝트 (프로젝트명: 또가게) 회고록",
+    "description": "누구나 손쉽게 원하는 매장의 기프티콘을 생성하고 선물할 수 있는 자체 페이 기반 금융 서비스",
+    "date": "2025-04-14",
+    "category": "project",
+    "path": "StoreOneMore",
+    "featured": true
   }
 ]
