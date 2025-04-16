@@ -1,6 +1,8 @@
 ## 개발 기간: 25.03.04 ~ 25.04.10 (약 6주)
 
-이번 프로젝트는 ‘핀테크’를 주제로, 개발보다는 **기획과 문제 해결 방식**에 더 많은 시간을 들인 경험이었다. 단순히 기능을 구현하기보다는 주어진 금융 챌린지를 어떻게 사용자 경험으로 풀어낼지를 중심으로 고민했고, 그 과정에서 결제 파트를 맡아 **금융 도메인에 대한 깊은 이해**를 쌓을 수 있었다. 특히 SSAFY에서 제공하는 금융 API를 활용해 은행과 VAN사 기능을 만들고 직접 구축해보며, 실제 결제 흐름(토큰 발급 → 인증 → 처리 → 응답)에 대한 실질적인 경험을 할 수 있었다. 프로젝트를 인정받아 본선에서 발표하여 우수상을 받은 뜻깊은 프로젝트였습니다.
+이번 프로젝트는 '핀테크'를 주제로, 개발보다는 **기획과 문제 해결 방식**에 더 많은 시간을 들인 경험이었습니다.  
+단순히 기능을 구현하기보다는 주어진 금융 챌린지를 어떻게 사용자 경험으로 풀어낼지를 중심으로 고민했고, 그 과정에서 결제 파트를 맡아 **금융 도메인에 대한 깊은 이해**를 쌓을 수 있었습니다.  
+특히 SSAFY에서 제공하는 금융 API를 활용해 은행과 VAN사 기능을 만들어보며, 실제 결제 흐름(토큰 발급 → 인증 → 처리 → 응답)에 대한 실질적인 경험을 할 수 있었습니다. 프로젝트를 인정받아 본선에서 발표하여 최우수상을 받은 뜻깊은 프로젝트였습니다.
 
 📌 프로젝트 개요
 
@@ -12,7 +14,8 @@
 
 ### 🧩 챌린지 & 해결 과정
 
-### 1️⃣ 문제 정의: “기프티콘을 상점이 몰라도 쓸 수 있게 하자”
+### 1️⃣ 문제 정의: "기프티콘을 상점이 몰라도 쓸 수 있게 하자"
+
 
 기존 기프티콘은 **상점과 기프티콘 발행 회사 간 협약**이 필요해, 사용자는 해당 브랜드 내에서만 사용할 수 있었습니다.
 
@@ -49,199 +52,197 @@ POS 시스템과 서비스 간 협업이 필요하다는 가정은 있었지만,
 
 ---
 
-### 4️⃣ 기술적 문제: iOS 환경과 HCE 구현의 제약
+### 4️⃣ 기술적 문제: HCE 구현의 제약
 
-- iOS에서는 **NFC 관련 권한 제약이 많고** 결제 구현이 어려웠기 때문에,
-  SSAFY가 삼성전자 주관인 점을 고려해 **Android 기반으로 NFC 결제를 설계**했습니다.
 - React Native에서 NFC를 구현하려 했지만,
   **기존 라이브러리의 호환성이 부족했고 안정성이 떨어졌습니다.**
 
 ✅ 그래서 직접 해결한 방법:
 
-- Kotlin으로 HCE 기반 NFC 결제 모듈을 팀에서 직접 제작하여 react-native에서 사용함
+
+- Kotlin으로 HCE 기반 NFC 결제 모듈을 직접 제작하여 react-native에서 사용함
 - `react-native-hce`와 여러 오픈소스를 참고하여 **웹과 앱 간 통신, 토큰 전송, 카드 에뮬레이션 처리까지 직접 설계**
 - 이 과정을 통해 NFC 결제의 전체 흐름을 온전히 이해하고, 실제 기기 테스트까지 완료했습니다.
 
 <details>
 <summary>직접 만든 모듈 (코드 주의)</summary>
 
-    ```kotlin
-    // CardService.kt
-    package com.mobile.nfc
+```kotlin
+// CardService.kt
+package com.mobile.nfc
 
-    import android.nfc.cardemulation.HostApduService
-    import android.os.Bundle
-    import android.widget.Toast
-    import java.util.Arrays
+import android.nfc.cardemulation.HostApduService
+import android.os.Bundle
+import android.widget.Toast
+import java.util.Arrays
 
-    private const val TAG = "CardService_싸피"
-    class CardService : HostApduService() {
+private const val TAG = "CardService_싸피"
+class CardService : HostApduService() {
 
-        override fun onDeactivated(reason: Int) {}
+    override fun onDeactivated(reason: Int) {}
 
-        // BEGIN_INCLUDE(processCommandApdu)
-        override fun processCommandApdu(commandApdu: ByteArray, extras: Bundle?): ByteArray {
-            // If the APDU matches the SELECT AID command for this service,
-            val EXTRA_DATA_STRING = savedData
+    // BEGIN_INCLUDE(processCommandApdu)
+    override fun processCommandApdu(commandApdu: ByteArray, extras: Bundle?): ByteArray {
+        // If the APDU matches the SELECT AID command for this service,
+        val EXTRA_DATA_STRING = savedData
 
-            return if (Arrays.equals(SELECT_APDU, commandApdu)) {
-                val account = EXTRA_DATA_STRING
-                val accountBytes = account!!.toByteArray()
+        return if (Arrays.equals(SELECT_APDU, commandApdu)) {
+            val account = EXTRA_DATA_STRING
+            val accountBytes = account!!.toByteArray()
 
-                concatArrays(accountBytes, SELECT_OK_SW)
-            } else {
-                UNKNOWN_CMD_SW
-            }
-        }
-
-        companion object {
-            // AID for our loyalty card service.
-            private const val SAMPLE_LOYALTY_CARD_AID = "F222222233"
-
-            // ISO-DEP command HEADER for selecting an AID.
-            // Format: [Class | Instruction | Parameter 1 | Parameter 2]
-            private const val SELECT_APDU_HEADER = "00A40400"
-
-            // "OK" status word sent in response to SELECT AID command (0x9000)
-            private val SELECT_OK_SW = hexStringToByteArray("9000")
-
-            // "UNKNOWN" status word sent in response to invalid APDU command (0x0000)
-            private val UNKNOWN_CMD_SW = hexStringToByteArray("0000")
-            private val SELECT_APDU = buildSelectApdu(SAMPLE_LOYALTY_CARD_AID)
-            // END_INCLUDE(processCommandApdu)
-
-            // 데이터 저장 정적 변수
-            var savedData: String? = null
-
-            fun buildSelectApdu(aid: String): ByteArray {
-                // Format: [CLASS | INSTRUCTION | PARAMETER 1 | PARAMETER 2 | LENGTH | DATA]
-                return hexStringToByteArray(
-                    SELECT_APDU_HEADER + String.format(
-                        "%02X",
-                        aid.length / 2
-                    ) + aid
-                )
-            }
-
-            fun byteArrayToHexString(bytes: ByteArray): String {
-                val hexArray = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
-                val hexChars = CharArray(bytes.size * 2) // Each byte has two hex characters (nibbles)
-                var v: Int
-                for (j in bytes.indices) {
-                    v = bytes[j].toInt() and 0xFF // Cast bytes[j] to int, treating as unsigned value
-                    hexChars[j * 2] = hexArray[v ushr 4] // Select hex character from upper nibble
-                    hexChars[j * 2 + 1] = hexArray[v and 0x0F] // Select hex character from lower nibble
-                }
-                return String(hexChars)
-            }
-
-            @Throws(IllegalArgumentException::class)
-            fun hexStringToByteArray(s: String): ByteArray {
-                val len = s.length
-                require(len % 2 != 1) { "Hex string must have even number of characters" }
-                val data = ByteArray(len / 2) // Allocate 1 byte per 2 hex characters
-                var i = 0
-                while (i < len) {
-                    // Convert each character into a integer (base-16), then bit-shift into place
-                    data[i / 2] = ( (s[i].digitToIntOrNull(16)!!.shl(4))
-                            + s[i + 1].digitToIntOrNull(16)!!).toByte()
-                    i += 2
-                }
-                return data
-            }
-
-            fun concatArrays(first: ByteArray, vararg rest: ByteArray): ByteArray {
-                var totalLength = first.size
-                for (array in rest) {
-                    totalLength += array.size
-                }
-                val result = Arrays.copyOf(first, totalLength)
-                var offset = first.size
-                for (array in rest) {
-                    System.arraycopy(array, 0, result, offset, array.size)
-                    offset += array.size
-                }
-                return result
-            }
+            concatArrays(accountBytes, SELECT_OK_SW)
+        } else {
+            UNKNOWN_CMD_SW
         }
     }
-    ```
 
-    ```kotlin
-    // NFCModule.kt
-    package com.mobile.nfc
+    companion object {
+        // AID for our loyalty card service.
+        private const val SAMPLE_LOYALTY_CARD_AID = "F222222233"
 
-    import android.content.Intent
-    import android.util.Log
-    import android.widget.Toast
-    import com.facebook.react.bridge.ReactApplicationContext
-    import com.facebook.react.bridge.ReactContextBaseJavaModule
-    import com.facebook.react.bridge.ReactMethod
+        // ISO-DEP command HEADER for selecting an AID.
+        // Format: [Class | Instruction | Parameter 1 | Parameter 2]
+        private const val SELECT_APDU_HEADER = "00A40400"
 
-    class NfcModule(reactContext: ReactApplicationContext?) : ReactContextBaseJavaModule(reactContext) {
-        //js에서 접근할 이름
-        override fun getName(): String {
-            return "DdopayNFC"
-        }
+        // "OK" status word sent in response to SELECT AID command (0x9000)
+        private val SELECT_OK_SW = hexStringToByteArray("9000")
 
-        // 접근 후에 부를 메소드
-        // @ReactMethod 어노테이션 필수
-        @ReactMethod
-        fun startNfcService(inputedData : String) {
-            val intent = Intent(
-                reactApplicationContext,
-                CardService::class.java
+        // "UNKNOWN" status word sent in response to invalid APDU command (0x0000)
+        private val UNKNOWN_CMD_SW = hexStringToByteArray("0000")
+        private val SELECT_APDU = buildSelectApdu(SAMPLE_LOYALTY_CARD_AID)
+        // END_INCLUDE(processCommandApdu)
+
+        // 데이터 저장 정적 변수
+        var savedData: String? = null
+
+        fun buildSelectApdu(aid: String): ByteArray {
+            // Format: [CLASS | INSTRUCTION | PARAMETER 1 | PARAMETER 2 | LENGTH | DATA]
+            return hexStringToByteArray(
+                SELECT_APDU_HEADER + String.format(
+                    "%02X",
+                    aid.length / 2
+                ) + aid
             )
-            CardService.savedData = inputedData
-            reactApplicationContext.startService(intent)
+        }
+
+        fun byteArrayToHexString(bytes: ByteArray): String {
+            val hexArray = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
+            val hexChars = CharArray(bytes.size * 2) // Each byte has two hex characters (nibbles)
+            var v: Int
+            for (j in bytes.indices) {
+                v = bytes[j].toInt() and 0xFF // Cast bytes[j] to int, treating as unsigned value
+                hexChars[j * 2] = hexArray[v ushr 4] // Select hex character from upper nibble
+                hexChars[j * 2 + 1] = hexArray[v and 0x0F] // Select hex character from lower nibble
+            }
+            return String(hexChars)
+        }
+
+        @Throws(IllegalArgumentException::class)
+        fun hexStringToByteArray(s: String): ByteArray {
+            val len = s.length
+            require(len % 2 != 1) { "Hex string must have even number of characters" }
+            val data = ByteArray(len / 2) // Allocate 1 byte per 2 hex characters
+            var i = 0
+            while (i < len) {
+                // Convert each character into a integer (base-16), then bit-shift into place
+                data[i / 2] = ( (s[i].digitToIntOrNull(16)!!.shl(4))
+                        + s[i + 1].digitToIntOrNull(16)!!).toByte()
+                i += 2
+            }
+            return data
+        }
+
+        fun concatArrays(first: ByteArray, vararg rest: ByteArray): ByteArray {
+            var totalLength = first.size
+            for (array in rest) {
+                totalLength += array.size
+            }
+            val result = Arrays.copyOf(first, totalLength)
+            var offset = first.size
+            for (array in rest) {
+                System.arraycopy(array, 0, result, offset, array.size)
+                offset += array.size
+            }
+            return result
         }
     }
-    ```
+}
+```
 
-    ```kotlin
-    // NFCPackage.kt
-    package com.mobile.nfc
+```kotlin
+// NFCModule.kt
+package com.mobile.nfc
 
-    import com.facebook.react.ReactPackage
-    import com.facebook.react.bridge.NativeModule
-    import com.facebook.react.bridge.ReactApplicationContext
-    import com.facebook.react.uimanager.ViewManager
+import android.content.Intent
+import android.util.Log
+import android.widget.Toast
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
 
-    class NfcPackage : ReactPackage {
-        override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-            val modules: MutableList<NativeModule> = ArrayList()
-            modules.add(NfcModule(reactContext)) // NfcModule을 추가
-            return modules
-        }
-
-        override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
-            return emptyList() // ViewManager는 사용하지 않으므로 빈 리스트를 반환
-        }
+class NfcModule(reactContext: ReactApplicationContext?) : ReactContextBaseJavaModule(reactContext) {
+    //js에서 접근할 이름
+    override fun getName(): String {
+        return "DdopayNFC"
     }
-    ```
 
+    // 접근 후에 부를 메소드
+    // @ReactMethod 어노테이션 필수
+    @ReactMethod
+    fun startNfcService(inputedData : String) {
+        val intent = Intent(
+            reactApplicationContext,
+            CardService::class.java
+        )
+        CardService.savedData = inputedData
+        reactApplicationContext.startService(intent)
+    }
+}
+```
 
-    ```kotlin
-    // MainApplication.kt
-    package com.mobile
+```kotlin
+// NFCPackage.kt
+package com.mobile.nfc
+
+import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ViewManager
+
+class NfcPackage : ReactPackage {
+    override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
+        val modules: MutableList<NativeModule> = ArrayList()
+        modules.add(NfcModule(reactContext)) // NfcModule을 추가
+        return modules
+    }
+
+    override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
+        return emptyList() // ViewManager는 사용하지 않으므로 빈 리스트를 반환
+    }
+}
+```
+
+```kotlin
+// MainApplication.kt
+package com.mobile
+...
+import com.mobile.nfc.NfcPackage
+
+class MainApplication : Application(), ReactApplication {
+
+    override val reactNativeHost: ReactNativeHost =
+        object : DefaultReactNativeHost(this) {
+        override fun getPackages(): List<ReactPackage> =
+            PackageList(this).packages.apply {
+                // Packages that cannot be autolinked yet can be added manually here, for example:
+                // add(MyReactNativePackage())
+                add(NfcPackage())
+            }
+                ...
+        }
     ...
-    import com.mobile.nfc.NfcPackage
-
-    class MainApplication : Application(), ReactApplication {
-
-      override val reactNativeHost: ReactNativeHost =
-          object : DefaultReactNativeHost(this) {
-            override fun getPackages(): List<ReactPackage> =
-                PackageList(this).packages.apply {
-                  // Packages that cannot be autolinked yet can be added manually here, for example:
-                  // add(MyReactNativePackage())
-                  add(NfcPackage())
-                }
-    				...
-          }
-    	...
-    }
-    ```
+}
+```
 
 </details>
 
@@ -267,46 +268,51 @@ POS 시스템과 서비스 간 협업이 필요하다는 가정은 있었지만,
 
 📌 `백엔드(서버 1)는 레디스에 저장한다.`
 
-6분의 유효기간으로 잡고 gift_id, amount, token을 저장한 후 프론트로 전달
+- 6분의 유효기간으로 잡고 gift_id, amount, token을 저장한 후 프론트로 전달
 
 📌 `모바일 (프론트 1)은 아래와 같이 동작한다.`
 
-웹 앱을 사용하기 때문에, Next.js와 ReactNative 간의 통신이 필요하다. 그래서 웹에서 서버로 API를 보내, 결제 토큰값을 받아오고 PostMessage를 통해 토큰 값을 RN으로 보내준다. RN에서는 onMessage에서 type을 통해 분기처리를 하고, 결제 요청인 경우 토큰 값을 또페이 결제 모듈에 담아 HCE 방식으로 휴대폰 내에 NFC 모듈에 접근하여 토큰 값을 담고, 카드리더기로 토큰을 보내준다.
+1. 웹에서 서버로 기프티콘 사용 API 요청 → 결제 토큰 수신
+
+2. postMessage로 토큰을 React Native 앱으로 전달
+
+3. onMessage 이벤트에서 type으로 메시지 분기
+
+4. 결제 요청일 경우 토큰을 결제 모듈에 전달
+
+5. HCE 방식으로 휴대폰 NFC 모듈에 토큰 탑재
+
+6. 카드 리더기에 토큰 전송
 
 📌 `포스기(프론트 2)는 아래와 같이 동작한다.`
 
-POS에서는 토큰의 결제 유무 판단을 위해 토큰 + 결제금액 + 가게계좌를 백엔드 서버로 보낸다.
-레디스 토큰을 조회하여 레디스 내에 amount와 POS가 요청한 결제 금액을 비교해 결제 가능 여부를 판단한다.
+1. POS에서는 토큰의 결제 유무 판단을 위해 토큰 + 결제금액 + 가게계좌를 백엔드 서버로 전송.
+
+2. 레디스 토큰을 조회하여 레디스 내에 amount와 POS가 요청한 결제 금액을 비교해 결제 가능 여부를 판단.
 
 📌 `가계 계좌를 보내는 이유는?`
 
-우리 서비스는 VAN사 서버 구현을 하지 않아 백엔드 서버에서 VAN사의 기능 역할을 담당하고 있다.
+- 우리 서비스는 VAN사 서버 구현을 하지 않아 백엔드 서버에서 VAN사의 기능 역할을 담당하고 있다.
 
 ### 3️⃣ 결제
 
 📌 `백엔드(서버 1)는 아래와 같이 동작한다.`
 
-결제가 가능한 것을 판단한 후,
-은행 서버로 가계 계좌, 법인 계좌, 결제 금액을 보내며 계좌 이체를 요청한다.
+1. 결제가 가능한 것을 판단한 후, 은행 서버로 가계 계좌, 법인 계좌, 결제 금액을 보내며 계좌 이체를 요청.
 
-이때, 결제 금액은 카드 수수료인 1%를 제외한 99%가 이체되며
-수수료의 0.5%는 기프티콘 발행자의 포인트로 적립되고,
-0.5%는 법인계좌에 묶여 수익을 얻을 수 있다.
+2. 결제 금액은 카드 수수료인 1%를 제외한 99%가 이체되며 수수료의 0.5%는 기프티콘 발행자의 포인트로 적립되고, 0.5%는 법인계좌에 묶여 수익 창출.
 
-은행 서버는 금융망 API를 이용해
-법인계좌(출금계좌)에서 가계계좌(입금계좌)로 99%의 금액에 대해 계좌 이체를 요청한다.
-
-</aside>
+3. 은행 서버는 금융망 API를 이용해 법인계좌(출금계좌)에서 가계계좌(입금계좌)로 99%의 금액에 대해 계좌 이체를 요청.
 
 ### 4️⃣ 결제 성공
 
-SSE로 서버로부터 결제 결과를 받아 클라이언트에 결과 화면을 제공한다.
+- SSE를 이용해 서버로부터 결제 결과 화면을 제공한다.
 
 ## 프론트엔드
 
 **주요 기술스택**
 
-| 기술               | 사용 이유                                                                                                                                                   |
+| 기술               | 사용이유                                                                                                                                                    |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Next.js v.15.3.0   | - React 기반 프레임워크로, 개발 편의성 제공하여 비즈니스 로직에 집중 가능 & 14버전을 사용하다가 미들웨어 보안 이슈 대응을 위해 급히 15.3.0으로 마이그레이션 |
 | react-native v0.78 | - 크로스 플랫폼 개발과 네이티브 앱 성능 등 유용한 장점 & 선택의 가장 큰 이유는 react에 대한 이해와 대중적인 커뮤니티와 생태계                               |
@@ -315,7 +321,7 @@ SSE로 서버로부터 결제 결과를 받아 클라이언트에 결과 화면�
 
 - zustand(상태관리), motion(앱 사용 경험과 비슷한 애니메이션), shadcn/ui & tailwindcss
 
-모바일 추가 라이브러리
+**모바일 추가 라이브러리**
 
 - react-native-webview, react-native-permission
 
@@ -333,13 +339,7 @@ SSE로 서버로부터 결제 결과를 받아 클라이언트에 결과 화면�
 
 - 반복 사용되는 애니메이션을 컴포넌트화하여 재사용성과 유지보수 효율 확보
 
-- 경로가 바뀔 때마다 page key 값을 바꾸어 애니메이션 실행
-
-이전 버전
-![Image](/storeonemore/no_animation.gif)
-
-애니메이션 적용 버전
-![Image](/storeonemore/motion_animation.gif)
+- 경로가 바뀔 때마다 page key 값을 바꾸어 애니메이션 실행
 
 **결제 기능**
 
@@ -365,15 +365,16 @@ SSE로 서버로부터 결제 결과를 받아 클라이언트에 결과 화면�
 
 ### 배운점
 
-직접 모듈 구현을 통한 문제 해결
+**직접 모듈 구현을 통한 문제 해결**
 
 - NFC 결제 구현 시 활용 가능한 라이브러리가 부족해 모듈을 직접 개발
-- 다양한 오픈소스를 분석하며 문제 해결 역량과 기술 탐색 능력을 강화
-- 모르는 것을 끝까지 파고드는 자세
 
-페어 프로그래밍을 통한 동료 성장 지원
+- 다양한 오픈소스를 분석하며 문제 해결 역량과 기술 탐색 능력을 강화
+
+**페어 프로그래밍을 통한 동료 성장 지원**
 
 - 프론트엔드 경험이 적은 팀원과 개념 정리부터 함께하며 실력을 끌어올림
+
 - 질문의 방향을 정리해주는 방식으로 효과적인 커뮤니케이션을 실천
 - 상대 입장을 고려한 설명과 피드백을 통해 실력뿐만 아니라 협업 역량까지 함께 성장
 
