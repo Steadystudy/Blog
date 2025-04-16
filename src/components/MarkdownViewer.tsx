@@ -36,6 +36,16 @@ export default function MarkdownViewer({ content }: Props) {
             height={500}
           />
         ),
+        details: ({ children, ...props }) => (
+          <details className="my-4" {...props}>
+            {children}
+          </details>
+        ),
+        summary: ({ children, ...props }) => (
+          <summary className="cursor-pointer hover:text-primary" {...props}>
+            {children}
+          </summary>
+        ),
       }}
       remarkPlugins={[remarkGfm]}
     >
