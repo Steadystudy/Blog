@@ -183,6 +183,25 @@ class NfcModule(reactContext: ReactApplicationContext?) : ReactContextBaseJavaMo
     override fun getName(): String {
         return "DdopayNFC"
     }
+}
+```
+
+```kotlin
+// NFCModule.kt
+package com.mobile.nfc
+
+import android.content.Intent
+import android.util.Log
+import android.widget.Toast
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
+
+class NfcModule(reactContext: ReactApplicationContext?) : ReactContextBaseJavaModule(reactContext) {
+    //js에서 접근할 이름
+    override fun getName(): String {
+        return "DdopayNFC"
+    }
 
     // 접근 후에 부를 메소드
     // @ReactMethod 어노테이션 필수
