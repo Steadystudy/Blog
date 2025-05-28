@@ -30,11 +30,11 @@ export default function MarkdownViewer({ content }: Props) {
           },
           img: (image) => (
             <Image
-              className="object-cover w-full"
+              className="object-cover"
               src={image.src || ''}
               alt={image.alt || ''}
-              width={500}
-              height={500}
+              width={image.width || 500}
+              height={image.height || 500}
             />
           ),
           details: ({ children, ...props }) => (
