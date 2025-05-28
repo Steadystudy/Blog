@@ -178,5 +178,14 @@
     "category": "project",
     "path": "StoreOneMore",
     "featured": true
+  },
+  {
+    "id": "21",
+    "title": "SSAFY 자율 프로젝트 (프로젝트명: FLIP) 회고록",
+    "description": "스마트 팩토리 물류 통합 관제 시스템 (삼성전자 연계 프로젝트)",
+    "date": "2025-05-28",
+    "category": "project",
+    "path": "flip",
+    "featured": true
   }
 ]
