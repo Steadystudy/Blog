@@ -187,5 +187,14 @@
     "category": "project",
     "path": "flip",
     "featured": true
+  },
+  {
+    "id": "22",
+    "title": "SSAFY 회고록",
+    "description": "1년간 SSAFY에서 배운 것들을 정리한 회고록",
+    "date": "2025-06-15",
+    "category": "ssafy",
+    "path": "ssafy",
+    "featured": true
   }
 ]
