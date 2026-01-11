@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [
@@ -16,6 +13,7 @@ const nextConfig = {
       },
     ],
   },
+  hideBadge: true,
 };
 
 module.exports = nextConfig;

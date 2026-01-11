@@ -196,5 +196,14 @@
     "category": "ssafy",
     "path": "ssafy",
     "featured": true
+  },
+  {
+    "id": "23",
+    "title": "2025년 하반기 회고록",
+    "description": "with CollabOps",
+    "date": "2026-01-05",
+    "category": "CollabOps",
+    "path": "2025memoir",
+    "featured": true
   }
 ]

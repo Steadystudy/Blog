@@ -7,7 +7,7 @@ const bodySchema = yup.object().shape({
   message: yup.string().required(),
 });
 
-export async function Post(req: Request) {
+export async function POST(req: Request) {
   // api에서 사용하는 req는 노드에서 사용하는 req와 동일하므로 req.body는 Readable Stream이다. 그래서 json으로 반환해줘야 함.
   const body = await req.json();
 
