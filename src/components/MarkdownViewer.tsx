@@ -3,6 +3,9 @@
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+// React 18 타입 호환성을 위한 타입 단언
+const SyntaxHighlighterComponent = SyntaxHighlighter as any;
 import Image from 'next/image';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -19,9 +22,14 @@ export default function MarkdownViewer({ content }: Props) {
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || '');
             return !inline && match ? (
-              <SyntaxHighlighter language={match[1]} PreTag="div" {...props} style={materialDark}>
+              <SyntaxHighlighterComponent 
+                language={match[1]} 
+                PreTag="div" 
+                {...props} 
+                style={materialDark}
+              >
                 {String(children).replace(/\n$/, '')}
-              </SyntaxHighlighter>
+              </SyntaxHighlighterComponent>
             ) : (
               <code className={`dark:text-green-100`} {...props}>
                 {children}

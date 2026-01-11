@@ -6,12 +6,13 @@ import { getFeaturedPosts, getPostData } from '@/service/posts';
 import { Metadata } from 'next';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
   const { title, description } = await getPostData(slug);
   return {
     openGraph: {
@@ -22,7 +23,8 @@ export async function generateMetadata({ params: { slug } }: Props): Promise<Met
   };
 }
 
-export default async function PostPage({ params: { slug } }: Props) {
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
   const { title, content, date, category, description, prev, next } = await getPostData(slug);
   return (
     <article className="m-8">
