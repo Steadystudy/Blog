@@ -9,7 +9,7 @@ import { IoHomeOutline, IoHomeSharp } from 'react-icons/io5';
 import { FiGithub } from 'react-icons/fi';
 import { BsFolder } from 'react-icons/bs';
 import { SiVelog } from 'react-icons/si';
-import { FaFolderOpen } from 'react-icons/fa';
+import { FaFolderOpen, FaLinkedin } from 'react-icons/fa';
 import DarkModeToggleBtn from './DarkModeToggleBtn';
 import { useTheme } from 'next-themes';
 
@@ -63,14 +63,13 @@ export default function Sidebar() {
       </ul>
       <ul className="flex lg:flex-col">
         <li>
-          <MenuBox onClick={toggleTheme}>
-            <DarkModeToggleBtn />
-          </MenuBox>
-        </li>
-        <li>
-          <Link aria-label="velog" target="_blank" href="https://velog.io/@steadystudy">
+          <Link
+            aria-label="linkedin"
+            target="_blank"
+            href="https://www.linkedin.com/in/%EC%83%81%EA%B8%B0-%EB%AF%BC-291b81301/"
+          >
             <MenuBox>
-              <SiVelog />
+              <FaLinkedin />
             </MenuBox>
           </Link>
         </li>
@@ -80,6 +79,18 @@ export default function Sidebar() {
               <FiGithub />
             </MenuBox>
           </Link>
+        </li>
+        <li>
+          <Link aria-label="velog" target="_blank" href="https://velog.io/@steadystudy">
+            <MenuBox>
+              <SiVelog />
+            </MenuBox>
+          </Link>
+        </li>
+        <li>
+          <MenuBox onClick={toggleTheme}>
+            <DarkModeToggleBtn />
+          </MenuBox>
         </li>
       </ul>
     </section>
