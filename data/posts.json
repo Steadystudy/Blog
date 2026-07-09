@@ -202,8 +202,17 @@
     "title": "2025년 하반기 회고록",
     "description": "with CollabOps",
     "date": "2026-01-05",
-    "category": "CollabOps",
+    "category": "memoir",
     "path": "2025memoir",
+    "featured": true
+  },
+  {
+    "id": "24",
+    "title": "2026년 상반기 회고록",
+    "description": "AI 시대의 개발자",
+    "date": "2026-07-10",
+    "category": "memoir",
+    "path": "2026_firsthalf_memoir",
     "featured": true
   }
 ]
