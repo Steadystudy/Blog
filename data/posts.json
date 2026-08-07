@@ -214,5 +214,14 @@
     "category": "memoir",
     "path": "2026_firsthalf_memoir",
     "featured": true
+  },
+  {
+    "id": "25",
+    "title": "3D 스마트 팩토리 관제 시스템 RENEW",
+    "description": "기존 프로젝트 되살리기",
+    "date": "2026-08-07",
+    "category": "project",
+    "path": "flip-renew",
+    "featured": true
   }
 ]
