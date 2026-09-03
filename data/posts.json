@@ -217,11 +217,20 @@
   },
   {
     "id": "25",
-    "title": "3D 스마트 팩토리 관제 시스템 RENEW",
+    "title": "3D 스마트 팩토리 관제 시스템 RENEW (1)",
     "description": "기존 프로젝트 되살리기",
     "date": "2026-08-07",
     "category": "project",
     "path": "flip-renew",
+    "featured": true
+  },
+  {
+    "id": "26",
+    "title": "3D 스마트 팩토리 관제 시스템 RENEW (2)",
+    "description": "고칠수록 더 빨리 멈춘 하루",
+    "date": "2026-09-03",
+    "category": "project",
+    "path": "flip-renew2",
     "featured": true
   }
 ]
